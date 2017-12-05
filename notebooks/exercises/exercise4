@@ -1,0 +1,13 @@
+rwfilter --sensor=S0              \
+         --type=in,inweb          \
+         --start=2009/4/20        \
+         --prot=0-  --pass=stdout \
+ | rwstats --fields=protocol --value=records --count=10
+
+INPUT: 5512 Records for 3 Bins and 5512 Total Records
+OUTPUT: Top 10 Bins by Records
+pro|   Records|  %Records|   cumul_%|
+  6|      4476| 81.204644| 81.204644|
+ 17|       896| 16.255443| 97.460087|
+  1|       140|  2.539913|100.000000|
+

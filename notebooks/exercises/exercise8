@@ -1,0 +1,9 @@
+Some possible commands to run are:
+
+rwfileinfo insidehosts.set
+rwsetcat insidehosts.set --count
+rwsetcat insidehosts.set | head -n 10
+
+rwfileinfo outsidehosts.set
+rwsetcat outsidehosts.set --count
+rwsetcat outsidehosts.set | head -n 10

@@ -1,0 +1,11 @@
+You should examine outgoing traffic to identify ACTUAL inside hosts. This traffic will originate from actual inside hosts. Incoming traffic is destined for addresses that the outside sender hopes exist; they may be simply addresses that are being probed.
+
+You can make both sets with one command depending upon how you define “outside addresses.” It can be done if your definition is: external address to which outgoing traffic is directed, but not necessarily addresses from which inbound traffic originates.
+
+rwfilter --start-date=2009/4/21 \
+         --sensor=S0       \
+         --type=out,outweb \
+         --proto=0-        \
+         --pass=stdout     \
+ | rwset --sip-file=insidehosts.set \
+         --dip-file=outsidehosts.set

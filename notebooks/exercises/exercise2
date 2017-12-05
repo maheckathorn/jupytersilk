@@ -1,0 +1,7 @@
+Expected command:
+
+rwfilter --start=2009/4/20 \
+         --sensor=S0 --type=in \
+         --protocol=1  \
+         --pass=stdout \
+ | rwcount --bin-size=1800

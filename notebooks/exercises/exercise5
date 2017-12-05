@@ -1,0 +1,18 @@
+rwfilter --start-date=2009/4/20 --sensor=S0 \
+         --type=out,outweb \
+         --proto=0- --pass=stdout \
+ | rwstats --fields=sip --value=distinct:dip --count=9
+
+INPUT: 5001 Records for 14 Bins and 42 Total dIP-Distinct
+OUTPUT: Top 9 Bins by dIP-Distinct
+            sIP|dIP-Distin|%dIP-Disti|   cumul_%|
+    10.1.60.187|        17| 40.476190|   40.4762|
+      10.1.60.5|        11| 26.190476|   66.6667|
+     10.1.60.25|        11| 26.190476|   92.8571|
+    10.1.60.191|         9| 21.428571|  114.2857|
+     10.1.60.73|         5| 11.904762|  126.1905|
+    10.1.60.251|         3|  7.142857|  133.3333|
+    10.1.60.253|         3|  7.142857|  140.4762|
+ 212.117.116.35|         3|  7.142857|  147.6190|
+      10.1.60.4|         2|  4.761905|  152.3810|
+

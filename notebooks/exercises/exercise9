@@ -1,0 +1,10 @@
+echo "/16 networks on the inside:"
+rwsetcat --network-struc=16 \
+         insidehosts.set
+echo "/8 networks on the outside:"
+rwsetcat --network-struc=8  \
+         outsidehosts.set
+echo "/24 networks on the outside:"
+rwsetcat --network-struc=24  \
+         outsidehosts.set    \
+| wc -l

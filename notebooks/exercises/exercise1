@@ -1,0 +1,15 @@
+Expected command:
+
+rwfilter --sensor=S0  --type=outweb        \
+           --start=2009/4/20  --dport=443  \
+           --pass=https0420.rw             \
+           --print-volume-statistics
+
+Expected output:
+
+     |  Recs| Packets|     Bytes| Files|
+Total|  1308|   37588|  39354028|    13|
+ Pass|   174|    2413|    223465|      |
+ Fail|  1134|   35175|  39130563|      |
+ 
+ Total passing records shows 174.

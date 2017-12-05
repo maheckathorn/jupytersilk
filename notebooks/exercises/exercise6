@@ -1,0 +1,8 @@
+cat << 'EOF' >> adr1.txt
+10.1.60.25
+10.2.190.254
+EOF
+
+rwsetbuild adr1.txt adr1.set
+ls -l adr1*
+rwsetcat adr1.set

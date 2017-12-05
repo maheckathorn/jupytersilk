@@ -1,0 +1,30 @@
+version: '2'
+services:
+  httpproxy:
+    image: jupyter/configurable-http-proxy
+    environment:
+      CONFIGPROXY_AUTH_TOKEN: ${TOKEN:-716238957362948752139417234}
+    container_name: proxy
+    command: --default-target http://tmpnb:9999 --api-ip=0.0.0.0
+    ports:
+      - "80:8000"
+    networks:
+      - tmpnb
+    restart: always
+
+  tmpnb_orchestrate:
+    image: jupyter/tmpnb
+    container_name: tmpnb
+    environment:
+      CONFIGPROXY_AUTH_TOKEN: ${TOKEN:-716238957362948752139417234}
+      CONFIGPROXY_ENDPOINT: "http://proxy:8001"
+    volumes:
+      - /var/run/docker.sock:/docker.sock
+    command: python orchestrate.py --image='certcc/jupytersilk' --docker-network=tmpnb --container-user=jovyan --command='start-notebook.sh "--NotebookApp.base_url=/{base_path} --ip=0.0.0.0 --port {port} --NotebookApp.port_retries=0 --NotebookApp.disable_check_xsrf=True --NotebookApp.token="""'
+    networks:
+      - tmpnb
+    restart: always
+
+networks:
+  tmpnb:
+    external: true
