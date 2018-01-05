@@ -1,3 +1,5 @@
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/maheckathorn/jupytersilk/master)
+
 Repository for JupyterSiLK Docker image
 
 Jupyter/SiLK is a [SiLK](https://tools.netsa.cert.org/silk/) training system that is built upon the [Jupyter](http://jupyter.org/) project and Jupyter Docker Demo Images (https://github.com/jupyter/docker-demo-images).  It brings all the power of the jupyter notebook project to netflow analysis in SiLK.  This includes the ability to create and share documents that contain live code, equations, visualizations and explanatory text.  The projects use cases are diverse, but include: becoming the de facto method for providing in person training, providing for an identical environment for self-driven training, and becoming the standard method for accessing the SiLK analysis tools
