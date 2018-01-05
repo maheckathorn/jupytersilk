@@ -1,6 +1,6 @@
 # Jupyter/SiLK Sandbox
 # Based on https://github.com/jupyter/docker-demo-images
-# VERSION	1.1
+# VERSION	1.2
 FROM jupyter/all-spark-notebook:b4dd11e16ae4
 MAINTAINER Matt Heckathorn <maheckathorn@cert.org>
 # Copyright 2017 Carnegie Mellon University. All Rights Reserved.
@@ -15,7 +15,7 @@ MAINTAINER Matt Heckathorn <maheckathorn@cert.org>
 # DM17-0973
 
 # Specify software versions to download
-ARG FIXBUF_VERSION=1.7.1
+ARG FIXBUF_VERSION=1.8.0
 ARG SILK_VERSION=3.16.0
 ARG NETSA_PYTHON_VERSION=1.5
 ARG RAYON_VERSION=1.4.3
@@ -31,17 +31,12 @@ RUN apt-get update \
 
 # SiLK/Rayon pre-reqs
 RUN apt-get update && apt-get install -y --no-install-recommends \
-		bison \
 		build-essential \
 		cmake \
 		curl \
-		emacs \
-		flex \
 		g++ \
-		gawk \
 		gcc \
 		glib2.0 \
-		less \
 		libcairo2-dev \
 		libglib2.0-dev \
 		liblzo2-2 \
@@ -51,11 +46,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		libyaml-dev \
 		make \
 		man-db \
-		nano \
 		python-cairo \
-		python-dev \
-		r-base \
-		vim && apt-get clean && \
+		&& apt-get clean && \
         rm -rf /var/lib/apt/lists/*
 
 # Download & Install latest silk-y stuff
