@@ -19,7 +19,7 @@ If you would like, you can mount your own repository in the /data directory in t
 
 ```
 cd repo
-docker run -v $PWD/repo:/data/repo:ro -p 8888:8888 certcc/jupytersilk
+docker run -v $PWD:/data/repo:ro -p 8888:8888 certcc/jupytersilk
 ```
 
 # Bring your own Notebooks
@@ -28,7 +28,7 @@ Mount notebook folder in the /home/jovyan/work directory in the container.
 
 ```
 cd notebooks
-docker run -v $PWD/notebooks:/home/jovyan/work:rw -p 8888:8888 certcc/jupytersilk
+docker run -v $PWD:/home/jovyan/work:rw -p 8888:8888 certcc/jupytersilk
 ```
 
 # Building a local docker image from included dockerfiles
