@@ -51,12 +51,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         rm -rf /var/lib/apt/lists/*
 
 # Download & Install latest silk-y stuff
-RUN curl http://tools.netsa.cert.org/releases/libfixbuf-$FIXBUF_VERSION.tar.gz | tar -xz && cd libfixbuf-* && ./configure && make && make install && cd ../ && rm -rf libfixbuf-$FIXBUF_VERSION
-RUN curl http://tools.netsa.cert.org/releases/silk-$SILK_VERSION.tar.gz | tar -xz && cd silk-* && ./configure --with-python --enable-ipv6 --enable-data-rootdir=/data/ && make && make install && cd ../ && rm -rf silk-$SILK_VERSION
+RUN curl https://tools.netsa.cert.org/releases/libfixbuf-$FIXBUF_VERSION.tar.gz | tar -xz && cd libfixbuf-* && ./configure && make && make install && cd ../ && rm -rf libfixbuf-$FIXBUF_VERSION
+RUN curl https://tools.netsa.cert.org/releases/silk-$SILK_VERSION.tar.gz | tar -xz && cd silk-* && ./configure --with-python --enable-ipv6 --enable-data-rootdir=/data/ && make && make install && cd ../ && rm -rf silk-$SILK_VERSION
 ENV LD_LIBRARY_PATH=/usr/local/lib
-RUN pip2 install --no-cache-dir http://tools.netsa.cert.org/releases/netsa-python-$NETSA_PYTHON_VERSION.tar.gz
+RUN pip2 install --no-cache-dir https://tools.netsa.cert.org/releases/netsa-python-$NETSA_PYTHON_VERSION.tar.gz
 RUN pip2 install --no-cache-dir https://github.com/pygobject/pycairo/releases/download/v1.15.4/pycairo-1.15.4.tar.gz
-RUN pip2 install --no-cache-dir --install-option="--install-scripts=/usr/local/bin" http://tools.netsa.cert.org/releases/rayon-$RAYON_VERSION.tar.gz
+RUN pip2 install --no-cache-dir --install-option="--install-scripts=/usr/local/bin" https://tools.netsa.cert.org/releases/rayon-$RAYON_VERSION.tar.gz
 
 RUN su -l -c "ldconfig"
 
